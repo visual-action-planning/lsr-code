@@ -26,6 +26,11 @@ If you use this code in your work, please cite it as follows:
 pip install -r requirements.txt
 ```
 
+### Datasets
+
+Download LSR stacking datasets [LSR stacking datasets](https://kth.box.com/s/v8pazzecg5rn0qjxconcr97l33f0goas) and place in "datasets" folder.
+
+
 ### Train models
 To make train and test split use:
 ```
