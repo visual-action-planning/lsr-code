@@ -65,4 +65,3 @@ You should get a image like this in the root folder as a result: (depending on y
 ![Stacking example](stacking_example_98765.png)
 
 
-
