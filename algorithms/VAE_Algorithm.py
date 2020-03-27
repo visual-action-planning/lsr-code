@@ -506,16 +506,9 @@ class VAE_Algorithm():
 
     def train(self, train_dataset, test_dataset, num_workers=0, chpnt_path=''):
         """Trains a model with given hyperparameters."""
-#        Debugging & Testing
-#        import torch.utils.data as data
-#        train_sampler = data.SubsetRandomSampler(
-#            np.random.choice(list(range(len(train_dataset))),
-#                             64, replace=False))
-#        TODO: shuffle, sampler
-
         dataloader = torch.utils.data.DataLoader(
                 train_dataset, batch_size=self.batch_size, shuffle=True,
-                num_workers=num_workers, drop_last=True) #, sampler=train_sampler)
+                num_workers=num_workers, drop_last=True)
         n_data = len(train_dataset)
         assert(train_dataset.dataset_name == test_dataset.dataset_name)
 
@@ -916,86 +909,4 @@ class VAE_Algorithm():
             self.model.eval()
 
 
-
-
-# ---
-# ====================== Train the models ====================== #
-# ---
-if __name__ == '__main__':
-    import pickle
-    class TripletTensorDataset(data.Dataset):
-        def __init__(self, dataset_name, split):
-            self.split = split.lower()
-            self.dataset_name =  dataset_name.lower()
-            self.name = self.dataset_name + '_' + self.split
-
-            # Test on toy data
-            if self.dataset_name == 'toy_data':
-                if split == 'test':
-                    with open('../datasets/test_toy_data.pkl', 'rb') as f:
-                        self.data = pickle.load(f)
-                else:
-                    with open('../datasets/train_toy_data.pkl', 'rb') as f:
-                        self.data = pickle.load(f)
-            else:
-                raise ValueError('Not recognized dataset {0}'.format(self.dataset_name))
-
-        def __getitem__(self, index):
-            img1, img2, action = self.data[index]
-            return img1, img2, action
-
-        def __len__(self):
-            return len(self.data)
-
-
-    train_dataset = TripletTensorDataset('toy_data', 'train')
-    test_dataset = TripletTensorDataset('toy_data', 'test')
-
-    vae_opt = {
-        'model': 'VAE_ResNet', # class name
-        'filename': 'vae',
-        'exp_dir': 'DUMMY',
-
-        'loss_fn': 'learnable full gaussian',
-        'num_workers': 2,
-        'device': 'cpu',
-        'input_channels': 3,
-        'latent_dim': 64,
-        'out_activation': 'sigmoid',
-        'dropout': 0.1,
-        'weight_init': 'normal_init',
-        'input_dim': 32*32*3,
-
-        'conv1_out_channels': 32,
-        'kernel_size': 3,
-        'num_scale_blocks': 3,
-        'block_per_scale': 1,
-        'depth_per_block': 2,
-        'fc_dim': 512,
-        'image_size': 32,
-        'learn_dec_logvar': True,
-
-        'epochs': 30,
-        'batch_size': 25,
-        'lr_schedule': [(0, 1e-5), (7, 5e-3)], 
-        'snapshot': 5,
-        'console_print': 1,
-        'beta_min': 0,
-        'beta_max': 1,
-        'beta_steps': 1,
-        'gamma_min': 1,
-        'gamma_max': 100,
-        'gamma_steps': 10,
-        'gamma_anneal': True,
-        'gamma_warmup': 5,
-        'min_dist_samples': 20,
-        'weight_dist_loss': 10,
-
-        'kl_anneal': True,
-
-        'optim_type': 'Adam',
-        'random_seed': 1201
-    }
-
-    algorithm = VAE_Algorithm(vae_opt)
 
