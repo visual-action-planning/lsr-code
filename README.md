@@ -8,13 +8,11 @@ If you use this code in your work, please cite it as follows:
 ## Bibtex
 
 ```
-@misc{lippi2020latent,
-    title={Latent Space Roadmap for Visual Action Planning of Deformable and Rigid Object Manipulation},
-    author={Martina Lippi and Petra Poklukar and Michael C. Welle and Anastasiia Varava and Hang Yin and Alessandro Marino and Danica Kragic},
-    year={2020},
-    eprint={2003.08974},
-    archivePrefix={arXiv},
-    primaryClass={cs.RO}
+@article{lippi2020latent,
+  title={Latent Space Roadmap for Visual Action Planning of Deformable and Rigid Object Manipulation},
+  author={Lippi, Martina and Poklukar, Petra and Welle, Michael C and Varava, Anastasiia and Yin, Hang and Marino, Alessandro and Kragic, Danica},
+  journal={arXiv preprint arXiv:2003.08974},
+  year={2020}
 }
 ```
 
