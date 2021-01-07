@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 ### Datasets
 
-Download LSR stacking datasets [LSR stacking datasets](https://kth.box.com/s/v8pazzecg5rn0qjxconcr97l33f0goas) and place in "datasets" folder.
+Download LSR stacking datasets [LSR stacking datasets](https://kth.box.com/shared/static/j1ytyxsq4m3s5pf8ilj2qc0zp0at9b3w.xz) and place in "datasets" folder.
 
 
 ### Train models
