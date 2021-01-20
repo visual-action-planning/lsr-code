@@ -8,10 +8,10 @@ If you use this code in your work, please cite it as follows:
 ## Bibtex
 
 ```
-@article{lippi2020latent,
+@inproceedings{lippi2020latent,
   title={Latent Space Roadmap for Visual Action Planning of Deformable and Rigid Object Manipulation},
   author={Lippi, Martina and Poklukar, Petra and Welle, Michael C and Varava, Anastasiia and Yin, Hang and Marino, Alessandro and Kragic, Danica},
-  journal={arXiv preprint arXiv:2003.08974},
+  booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
   year={2020}
 }
 ```
