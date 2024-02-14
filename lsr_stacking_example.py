@@ -22,7 +22,9 @@ import lsr_utils as lsr
 def make_figure_path_result(f_start,f_goal,graph_name,config_file,checkpoint_file,action_config,action_checkpoint_file,distance_type,image_save_name):
 
     #load graph 
-    G=nx.read_gpickle(graph_name)
+    with open(graph_name, 'rb') as f:
+        G = pickle.load(f)
+    #G=nx.read_gpickle(graph_name)
 
     #load VAE
     vae_config_file = os.path.join('.', 'configs', config_file + '.py')

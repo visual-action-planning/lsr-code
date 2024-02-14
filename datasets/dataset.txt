@@ -1,5 +1,0 @@
-Download the Unity Stacking datasets:
-unity_stacking.pkl 
-unity_stacking_actions.pkl 
-evaluation_unity_stacking_graph_classes.pkl 
-here: https://kth.box.com/s/v8pazzecg5rn0qjxconcr97l33f0goas

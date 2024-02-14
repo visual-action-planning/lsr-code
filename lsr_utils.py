@@ -299,7 +299,9 @@ def build_lsr(latent_map_file,epsilon,distance_type,graph_name, config_file,chec
     print("Num edges: " + str(G2.number_of_edges()))
 
     if save_graph:
-        nx.write_gpickle(G2, graph_path+".pkl")
+        with open(graph_path+".pkl", 'wb') as f:
+            pickle.dump(G2, f, pickle.HIGHEST_PROTOCOL)
+        #nx.write_gpickle(G2, graph_path+".pkl")
         print("SAVED")
     stats_dict = {'num_nodes':num_nodes_p}
     return G2, stats_dict
